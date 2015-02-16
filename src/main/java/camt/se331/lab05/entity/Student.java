@@ -47,30 +47,4 @@ public class Student {
         this.gpa = gpa;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Student)) return false;
-
-        Student student = (Student) o;
-
-        if (Double.compare(student.gpa, gpa) != 0) return false;
-        if (id != student.id) return false;
-        if (name != null ? !name.equals(student.name) : student.name != null) return false;
-        if (surname != null ? !surname.equals(student.surname) : student.surname != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result;
-        long temp;
-        result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (surname != null ? surname.hashCode() : 0);
-        temp = Double.doubleToLongBits(gpa);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        return result;
-    }
 }
